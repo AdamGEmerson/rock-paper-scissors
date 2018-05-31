@@ -2,121 +2,28 @@
 
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> 
 	<title>Rock, Paper, Scissors</title>
-	<script type="text/javascript">
-	</script>
 </head>
 <body>
-	<h2>Rock, Paper, Scissors</h2>
-	<p>Make your choice! First to 5 wins.</p>
-	<div class="buttons">
-		<button id="rockbtn">Rock</button>
-		<button id="paperbtn">Paper</button>
-		<button id="scisbtn">Scissors</button>
-	</div>
-	<div class="scoreboard">
-		<div> <span>Player: </span><span id="player-score">0</span></div>
-		<div> <span>Computer: </span><span id="comp-score">0</span></div>
-		<div id="outcome">Click a button to start!</div>
+	<div class="container">
+		<div class="title">
+			<h1>Rock, Paper, Scissors</h1>
+			<h2>Make your choice! First to 5 wins.</h2>
+		</div>
+		<div class="buttons">
+			<img src="https://www.noao.edu/image_gallery/images/d4/J1337-29_crop1-500.jpg" id="image" class="image"/> <br>
+			<button id="rockbtn">Rock</button>
+			<button id="paperbtn">Paper</button>
+			<button id="scisbtn">Scissors</button>
+			<div id="outcome">Click a button to start!</div>
+		</div>
+		<div class="scoreboard">
+			<div> <span>Player: </span><span id="player-score">0</span></div>
+			<div> <span>Computer: </span><span id="comp-score">0</span></div>
+		</div>
 	</div>
 </body>
-<script type="text/javascript">
-
-	var playerPoints = 0;
-	var computerPoints = 0;
-
-	function computerChoice() {
-		let choice = Math.random();
-		console.log(choice)
-		if (choice >= .66) {
-			choice = "Rock";
-		} else if (choice >= .33) {
-			choice = "Paper";
-		} else {
-			choice = "Scissors";
-		}
-		return choice;
-	}
-
-	function playGame(player, computer) {
-		if (player == computer) {
-			printOutcome(player, computer, 't');
-			return;
-		} 
-
-		if (player == "Rock") {
-			if (computer == "Paper") {
-				printOutcome(player, computer, 'l');
-				return;
-			} else {
-				printOutcome(player, computer, 'w');
-				return;
-			}
-
-		} else if (player=="Paper") {
-			if (computer == "Scissors") {
-				printOutcome(player, computer, 'l');
-				return;
-			} else {
-				printOutcome(player, computer, 'w');
-				return;
-			}
-
-		} else {
-			if (computer == "Rock") {
-				printOutcome(player, computer, 'l');
-				return;
-			} else {
-				printOutcome(player, computer, 'w');
-				return;
-			}
-		}
-	}
-
-	function printOutcome(player, computer, outcome) {
-		if (outcome == 'l') {
-			updateScore("Computer");
-			document.getElementById("comp-score").innerHTML = computerPoints;
-			outcome = "You Lose!"
-		} else if (outcome == 'w') {
-			updateScore("Player");
-			document.getElementById("player-score").innerHTML = playerPoints;
-			outcome = "You Win!"
-		} else {
-			outcome = "It's a Draw!"
-		}
-		let message = "Player chose " + player + ", computer chose " + computer +". Outcome is: " + outcome;
-		document.getElementById("outcome").innerHTML = message;
-
-		if (playerPoints >= 5) {
-			alert("YOU WIN!")
-			resetGame();
-		} else if (computerPoints >= 5) {
-			alert("COMPUTER WINS!")
-			resetGame();
-		}
-	}
-
-	function updateScore(whichScore) {
-		if (whichScore == "Player") {
-			playerPoints = playerPoints + 1;
-			console.log(playerPoints);
-		}
-		if (whichScore == "Computer") {
-			computerPoints += 1;
-			console.log(computerPoints);
-		}
-	}
-
-	function resetGame() {
-		playerPoints = 0;
-		computerPoints = 0;
-		document.getElementById("comp-score").innerHTML = computerPoints;
-		document.getElementById("player-score").innerHTML = playerPoints;
-	}
-
-	document.getElementById("rockbtn").addEventListener("click", function() { playGame("Rock", computerChoice()); } );
-	document.getElementById("paperbtn").addEventListener("click", function() { playGame("Paper", computerChoice()); });
-	document.getElementById("scisbtn").addEventListener("click", function() { playGame("Scissors", computerChoice()); });
-</script>
+<script type="text/javascript" src="index.js"></script>
 </html>
