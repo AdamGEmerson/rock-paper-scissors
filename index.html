@@ -13,15 +13,24 @@
 			<h2>Make your choice! First to 5 wins.</h2>
 		</div>
 		<div class="buttons">
-			<img src="https://www.noao.edu/image_gallery/images/d4/J1337-29_crop1-500.jpg" id="image" class="image"/> <br>
-			<button id="rockbtn">Rock</button>
-			<button id="paperbtn">Paper</button>
-			<button id="scisbtn">Scissors</button>
-			<div id="outcome">Click a button to start!</div>
+			<button id="rockbtn">
+				<img src="images/rock.png" alt="Rock" class="btn-img"/>
+			</button>
+			<button id="paperbtn">
+				<img src="images/paper.png" alt="Paper" class="btn-img"/>
+			</button>
+			<button id="scisbtn">
+				<img src="images/scissors.png" alt="Scissors" class="btn-img"/>
+			</button>
 		</div>
 		<div class="scoreboard">
-			<div> <span>Player: </span><span id="player-score">0</span></div>
-			<div> <span>Computer: </span><span id="comp-score">0</span></div>
+			<div id="outcome" style="padding: 10px;">Choose your weapon!</div>
+			<div class="player-scr"> 
+				<p>Player: <span id="player-score">0</span></p>
+			</div>
+			<div class="comp-scr"> 
+				<p>Computer: <span id="comp-score">0</span></p>
+			</div>
 		</div>
 	</div>
 </body>

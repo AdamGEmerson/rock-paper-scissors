@@ -45,14 +45,14 @@ function printOutcome(player, computer, outcome) {
 	} else {
 		outcome = "It's a Draw!"
 	}
-	let message = "Player chose " + player + ", computer chose " + computer +". Outcome is: " + outcome;
+	let message = "You chose " + player + "! I chose " + computer +". " + outcome;
 	document.getElementById("outcome").innerHTML = message;
 
 	if (playerPoints >= 5) {
-		alert("YOU WIN!")
+		alert("You beat me at my own game!? What are you, some kind of Roshambo master?")
 		resetGame();
 	} else if (computerPoints >= 5) {
-		alert("COMPUTER WINS!")
+		alert("Ha. You suck at guessing! Better luck next time.")
 		resetGame();
 	}
 }
@@ -75,21 +75,8 @@ function resetGame() {
 	document.getElementById("player-score").innerHTML = playerPoints;
 }
 
-function changeImage(image) {
-	console.log("Firing function changeImage")
-	if (image == 'rock') {
-		document.getElementById("image").src = "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fg02.a.alicdn.com%2Fkf%2FHTB1L24.KFXXXXa0XpXXq6xXFXXXW%2FDC-0-300V-Blue-LED-Display-Digital-Voltmeter-DC-12V-24V-Voltage-Meter-Tester-Mini-Car.jpg&f=1"
-	} else if (image == 'none') {
-		document.getElementById("image").src = "https://www.noao.edu/image_gallery/images/d4/J1337-29_crop1-500.jpg"
-	}
-}
-
 //Events for button clicks
 document.getElementById("rockbtn").addEventListener("click", function() { playGame("Rock", computerChoice()); } );
 document.getElementById("paperbtn").addEventListener("click", function() { playGame("Paper", computerChoice()); });
 document.getElementById("scisbtn").addEventListener("click", function() { playGame("Scissors", computerChoice()); });
-
-//Events for button hovers;
-document.getElementById('rockbtn').addEventListener("mouseover", function() { changeImage("rock"); } );
-document.getElementById('rockbtn').addEventListener("mouseout", function() { changeImage("none"); } );
 
